@@ -1,4 +1,4 @@
-var mongoose = require('mongoose')
+const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const _ = require('underscore')
 const User = mongoose.model('User')

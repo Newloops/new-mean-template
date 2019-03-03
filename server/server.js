@@ -20,8 +20,8 @@ mongoose.connect(database.url,
 	}
 });
 
-var api = require('./routes/users')
-app.use(api)
+// Config global routes
+app.use(require('./routes/index'))
 
 app.listen(config.PORT, () => {
 	console.log('Node esta funcionando a traves de http://localhost: ' + config.PORT)
