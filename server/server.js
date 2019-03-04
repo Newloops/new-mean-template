@@ -2,8 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 const bodyParser = require('body-parser')
-var config = require('./config/config')
-var database = require('./config/database')
+let config = require('./config/config')
+let database = require('./config/database')
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -23,6 +23,6 @@ mongoose.connect(database.url,
 // Config global routes
 app.use(require('./routes/index'))
 
-app.listen(config.PORT, () => {
-	console.log('Node esta funcionando a traves de http://localhost: ' + config.PORT)
+app.listen(process.env.PORT, () => {
+	console.log('Node esta funcionando a traves de http://localhost: ' + process.env.PORT)
 });

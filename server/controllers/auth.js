@@ -22,7 +22,7 @@ exports.auth = (req, res) => {
             return res.json({
                 success: false,
                 error: {
-                  message: 'Authentication failed. Email not found.'
+                    message: 'Authentication failed. Email not found.'
                 }
             })
         } 
@@ -39,7 +39,7 @@ exports.auth = (req, res) => {
 
         let token = jwt.sign({
             user
-        }, '6aec65c707691e4aa757d1d9866dc', { expiresIn: 60 * 60 * 24 * 30 })
+        }, process.env.TOKEN_SECRET, { expiresIn: process.env.TOKEN_EXPIRE })
 
         user.password = null
         

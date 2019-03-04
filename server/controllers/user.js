@@ -26,13 +26,13 @@ exports.findAllUsers = (req, res) => {
 
             User.count({}, (req, total) => {
 
-                console.log('GET /users')
-
                 res.status(200).json({
                     success: true,
                     users,
                     total
                 })
+
+                console.log('GET /users')
                 
             })
             
