@@ -3,5 +3,6 @@ const app = express()
 
 app.use(require('./auth'))
 app.use(require('./users'))
+app.use(require('./category'))
 
 module.exports = app
