@@ -9,7 +9,7 @@ exports.findAllUsers = (req, res) => {
     let from = req.query.from || 0
     from = Number(from)
 
-    let limit = req.query.limit || 5
+    let limit = req.query.limit || 10
     limit = Number(limit)
 
     User.find({}, 'email role status')
@@ -81,7 +81,7 @@ exports.addUser = (req, res) => {
     let user = new User({
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 10),
-        role: req.body.role
+        name: req.body.name
     })
 
     user.save((err, user) => {

@@ -10,4 +10,7 @@ const UserCtrl = require('../controllers/auth')
 api.route('/auth')
     .post(UserCtrl.auth);
 
+api.route('/register')
+    .post(UserCtrl.register);
+
 module.exports = api

@@ -10,9 +10,14 @@ let userSchema = new Schema({
     email: {
         type: String,
         unique: true,
-        required: true
+        required: true,
+        description: "can only be one of the enum values and is required"
     },
     password: {
+        type: String,
+        required: true
+    },
+    name: {
         type: String,
         required: true
     },

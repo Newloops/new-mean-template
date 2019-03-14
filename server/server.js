@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
 const app = express()
 const bodyParser = require('body-parser')
 let config = require('./config/config')
@@ -10,6 +11,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+app.use(cors())
+
 mongoose.connect(database.url, { useNewUrlParser: true, useCreateIndex: true }, (err, res) => { // connect to our database
     if (err) {
         console.log('ERROR: No ha sido posible conectar con la base de datos. ' + err)
@@ -19,7 +22,7 @@ mongoose.connect(database.url, { useNewUrlParser: true, useCreateIndex: true }, 
 })
 
 // Config global routes
-app.use(require('./routes/index'))
+app.use('/api', require('./routes/index'))
 
 app.listen(process.env.PORT, () => {
 	console.log('Node esta funcionando a traves de http://localhost: ' + process.env.PORT)
